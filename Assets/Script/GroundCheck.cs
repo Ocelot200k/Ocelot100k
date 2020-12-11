@@ -10,7 +10,7 @@ public class GroundCheck : MonoBehaviour
     // Start is called before the first frame update
     public bool IsGround()
     {
-        if(isGroundEnter || isGroundStay)
+        if (isGroundEnter || isGroundStay)
         {
             isGround = true;
         }
@@ -24,12 +24,11 @@ public class GroundCheck : MonoBehaviour
         isGroundExit = false;
         return isGround;
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == groundTag)
         {
-            Debug.Log(collision.gameObject.name);
+            isGround = true;
             isGroundEnter = true;
         }
     }
@@ -38,7 +37,6 @@ public class GroundCheck : MonoBehaviour
     {
         if (collision.tag == groundTag)
         {
-            Debug.Log(collision.gameObject.name);
             isGroundStay = true;
         }
     }
@@ -49,5 +47,7 @@ public class GroundCheck : MonoBehaviour
         {
             isGroundExit = true;
         }
-    } 
+    }
 }
+
+
